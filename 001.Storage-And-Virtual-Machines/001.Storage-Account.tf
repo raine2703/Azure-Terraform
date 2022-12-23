@@ -18,7 +18,9 @@ provider "azurerm" {
   features {}
 }
 
+
 //Creating Resources:
+
 
 resource "azurerm_resource_group" "RG" {
   name     = "RnRG32"
