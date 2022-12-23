@@ -19,7 +19,7 @@ provider "azurerm" {
 }
 
 
-
+//Creating Resources
 
 resource "azurerm_resource_group" "RG" {
   name     = "RnRG32"
