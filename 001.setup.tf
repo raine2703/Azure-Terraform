@@ -4,6 +4,7 @@
 //terraform -version
 //terraform plan -out main.tfplan
 //terraform apply
+//terraform destroy
 
 
 //Defining that i will be using Azure
