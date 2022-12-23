@@ -2,8 +2,9 @@
 //Terraform as application must be registered in AAD. Also it must be granted necessary RBAC permissions on Subscription level. Contributor as example.
 
 //terraform -version
-//terraform plan -out main.tfplan
+//terraform plan -out main.tfplan or:
 //terraform apply
+//terraform appl main.tfplan
 //terraform destroy
 
 
