@@ -3,7 +3,7 @@
 
 //terraform -version
 //terraform plan -out main.tfplan
-#terraform apply
+//terraform apply
 //terraform destroy
 
 
