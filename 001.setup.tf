@@ -26,7 +26,7 @@ provider "azurerm" {
 }
 
 //Thats it! :)
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "RG" {
   name     = "RnRG32"
   location = "North Europe"
 }
