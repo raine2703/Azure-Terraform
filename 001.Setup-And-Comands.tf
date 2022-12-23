@@ -4,7 +4,7 @@
 //terraform -version
 //terraform plan -out main.tfplan
 //terraform apply 
-//terraform appl main.tfplan   - defines plan we created before
+//terraform apply main.tfplan   - defines plan we created before
 //terraform destroy
 
 
