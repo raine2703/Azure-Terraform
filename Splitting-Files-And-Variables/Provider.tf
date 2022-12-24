@@ -1,4 +1,5 @@
 //Defining provider here
+//client_secret set as variable, defined in variables.tf
 
 terraform {
   required_providers {
