@@ -26,12 +26,22 @@ provider "azurerm" {
 locals {
   resource_group_name = "RG3"
   location = "North Europe"
-//local variable based on map (object) type
+  NIC_name = "VM1NIC"
+  NSG_name = "NSG1"
+  VM_name = "VM1"
+  VM_size = "Standard_B2s"
+  VM_storage_account_type = "Standard_LRS"
+  VM_sku = "2022-Datacenter"
+  VM_username = "adminuser"
+  VM_password = "P@$$w0rd1234!"
+
+
+//map (object) variables
   virtual_network = {
     name = "Vnet1"
     adress_space = "10.0.0.0/16"
   }
-//using list
+//list variables
   subnets = [
     {
       name = "SubnetA"
@@ -42,41 +52,29 @@ locals {
       address_range = "10.0.2.0/24"
     }
   ]
-  NIC_name = "VM1NIC"
-  NSG_name = "NSG1"
-  VM_name = "VM1"
-  VM_size = "Standard_B2s"
-  VM_storage_account_type = "Standard_LRS"
-  VM_sku = "2022-Datacenter"
-
-  VM_username = "adminuser"
-  VM_password = "P@$$w0rd1234!"
-  
 }
 
 
-//Creating Resources:
-
+//Creating Resource Group
 resource "azurerm_resource_group" "RG3" {
-//using local variables
   name     = local.resource_group_name
   location = local.location
 }
 
+
+//Creating Virtual Network
 resource "azurerm_virtual_network" "Vnet1" {
-//using local object variables
   name                = local.virtual_network.name
   address_space       = [local.virtual_network.adress_space]
   location            = local.location
   resource_group_name = local.resource_group_name
   depends_on = [
-//each next resource depends on previous to be created
     azurerm_resource_group.RG3
   ]
 }
 
+//Creating Subnet
 resource "azurerm_subnet" "SubnetA" {
-//using list variables
   name                 = local.subnets[0].name
   resource_group_name  = local.resource_group_name
   virtual_network_name = local.virtual_network.name
@@ -86,6 +84,7 @@ resource "azurerm_subnet" "SubnetA" {
   ]
 }
 
+//Creating another Subnet
 resource "azurerm_subnet" "SubnetB" {
   name                 = local.subnets[1].name
   resource_group_name  = local.resource_group_name
@@ -96,6 +95,18 @@ resource "azurerm_subnet" "SubnetB" {
   ]
 }
 
+//Creating Public IP
+resource "azurerm_public_ip" "Public-IP" {
+  name                = "Vm1-Public-IP"
+  resource_group_name = local.resource_group_name
+  location            = local.location
+  allocation_method   = "Static"
+  depends_on = [
+    azurerm_resource_group.RG3
+  ]
+}
+
+//Creating NIC
 resource "azurerm_network_interface" "VM1NIC" {
   name                = local.NIC_name
   location            = local.location
@@ -105,12 +116,15 @@ resource "azurerm_network_interface" "VM1NIC" {
     name                          = "IPConfig"
     subnet_id                     = azurerm_subnet.SubnetA.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.Public-IP.id
   }
   depends_on = [
-    azurerm_subnet.SubnetA
+    azurerm_subnet.SubnetA,
+    azurerm_public_ip.Public-IP
   ]
 }
 
+//Creating NSG
 resource "azurerm_network_security_group" "NSG1" {
   name                = local.NSG_name
   location            = local.location
@@ -132,6 +146,7 @@ resource "azurerm_network_security_group" "NSG1" {
   ]
 }
 
+//Assigning NSG to SubnetA
 resource "azurerm_subnet_network_security_group_association" "NSG1-Association" {
   subnet_id                 = azurerm_subnet.SubnetA.id
   network_security_group_id = azurerm_network_security_group.NSG1.id
@@ -140,6 +155,7 @@ resource "azurerm_subnet_network_security_group_association" "NSG1-Association" 
   ]
 }
 
+//Creating VM
 resource "azurerm_windows_virtual_machine" "VM1" {
   name                = local.VM_name
   resource_group_name = local.resource_group_name
@@ -165,4 +181,12 @@ resource "azurerm_windows_virtual_machine" "VM1" {
   depends_on = [
     azurerm_subnet_network_security_group_association.NSG1-Association
   ]
+}
+
+
+
+
+//Showing outputs. Might become useful.
+output "SubnetA-ID" {
+  value = azurerm_subnet.SubnetA.id
 }
