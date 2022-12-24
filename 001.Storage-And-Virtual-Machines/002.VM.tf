@@ -34,8 +34,6 @@ locals {
   VM_sku = "2022-Datacenter"
   VM_username = "adminuser"
   VM_password = "P@$$w0rd1234!"
-
-
 //map (object) variables
   virtual_network = {
     name = "Vnet1"
