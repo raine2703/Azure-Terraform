@@ -142,7 +142,7 @@ resource "azurerm_network_security_group" "NSG1" {
     destination_address_prefix = "*"
   }
   depends_on = [
-    azurerm_subnet.SubnetA
+    azurerm_resource_group.RG3
   ]
 }
 
@@ -151,7 +151,8 @@ resource "azurerm_subnet_network_security_group_association" "NSG1-Association" 
   subnet_id                 = azurerm_subnet.SubnetA.id
   network_security_group_id = azurerm_network_security_group.NSG1.id
   depends_on = [
-    azurerm_network_security_group.NSG1
+    azurerm_network_security_group.NSG1,
+    azurerm_subnet.SubnetA
   ]
 }
 
@@ -182,8 +183,6 @@ resource "azurerm_windows_virtual_machine" "VM1" {
     azurerm_subnet_network_security_group_association.NSG1-Association
   ]
 }
-
-
 
 
 //Showing outputs. Might become useful.
