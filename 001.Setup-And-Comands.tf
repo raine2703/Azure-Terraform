@@ -8,7 +8,7 @@
 //terraform destroy
 
 
-//Defining that i will be using Azure
+//Defining to use Azure as provider
 terraform {
   required_providers {
     azurerm = {
