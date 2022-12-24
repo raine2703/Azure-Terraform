@@ -1,5 +1,4 @@
-//terraform plan -out main.tfplan
-//terraform apply
+//Storage account with Container and Blob
 
 terraform {
   required_providers {
@@ -21,17 +20,46 @@ provider "azurerm" {
 
 //Creating Resources:
 
-
 resource "azurerm_resource_group" "RG" {
   name     = "RnRG32"
   location = "North Europe"
 }
 
+//Creating Storage account
+
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
-  name                     = "rnstorageacc2703x52"
+  name                     = "rnstorageacc2703x52s"
   resource_group_name      = azurerm_resource_group.RG.name
   location                 = azurerm_resource_group.RG.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind = "StorageV2"
+  depends_on = [
+    azurerm_resource_group.RG
+  ]
 }
+
+//Creating Container
+
+resource "azurerm_storage_container" "files" {
+  name                  = "files"
+  storage_account_name  = azurerm_storage_account.rnstorageacc2703x52.name
+  container_access_type = "blob"
+  depends_on = [
+    azurerm_storage_account.rnstorageacc2703x52
+  ]
+}
+
+//Creating Blob
+
+resource "azurerm_storage_blob" "txtfile" {
+  name                   = "txt.txt"
+  storage_account_name   = azurerm_storage_account.rnstorageacc2703x52.name
+  storage_container_name = azurerm_storage_container.files.name
+  type                   = "Block"
+  source                 = "txt.txt"
+  depends_on = [
+    azurerm_storage_container.files
+  ]
+}
+
