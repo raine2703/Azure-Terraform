@@ -21,7 +21,7 @@ provider "azurerm" {
 }
 
 
-//Defining local variables for reuse purpose
+//Defining local variables
 
 locals {
   resource_group_name = "RG3"
