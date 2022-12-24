@@ -28,7 +28,7 @@ resource "azurerm_resource_group" "RG" {
 //Creating Storage account
 
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
-  name                     = "rnstorageacc2703x52s"
+  name                     = "rnstorageacc2703x52"
   resource_group_name      = azurerm_resource_group.RG.name
   location                 = azurerm_resource_group.RG.location
   account_tier             = "Standard"
