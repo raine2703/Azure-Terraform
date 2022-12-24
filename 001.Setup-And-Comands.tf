@@ -27,12 +27,8 @@ provider "azurerm" {
   features {}
 }
 
-//Thats it! :)
+//Thats it! 
 resource "azurerm_resource_group" "RG" {
   name     = "RnRG32"
   location = "North Europe"
 }
-
-//Deploy to Azure with these simple comands:
-//terraform plan -out main.tfplan
-//terraform apply
