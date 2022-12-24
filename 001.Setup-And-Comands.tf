@@ -33,6 +33,3 @@ resource "azurerm_resource_group" "RG" {
   location = "North Europe"
 }
 
-
-
-
