@@ -178,7 +178,7 @@ resource "azurerm_windows_virtual_machine" "VM1" {
     version   = "latest"
   }
   depends_on = [
-    azurerm_subnet_network_security_group_association.NSG1-Association
+    azurerm_network_interface.VM1NIC
   ]
 }
 
