@@ -1,8 +1,5 @@
 //Creating VM with Vnet, Subnets, NIC, NSG, NSG Rule, Subnet-NSG association.
 
-//terraform plan -out main.tfplan
-//terraform apply main.tfplan
-
 terraform {
   required_providers {
     azurerm = {
@@ -19,6 +16,9 @@ provider "azurerm" {
   client_secret = "Yrr8Q~dHXo1wZZV-sl_gvzt61ZvxEpeIOd8.Gdo_"
   features {}
 }
+
+
+
 
 //Defining local variables
 locals {
@@ -49,6 +49,9 @@ locals {
     }
   ]
 }
+
+
+
 
 
 //Creating Resource Group
