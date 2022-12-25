@@ -3,6 +3,7 @@
 
 //terrafrom init
 //terraform -version
+//terraform -validate
 //terraform plan -out main.tfplan
 //terraform apply 
 //terraform apply main.tfplan   - defines plan we created before
