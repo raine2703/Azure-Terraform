@@ -1,4 +1,4 @@
-//Multiple Storage Accounts wih use of count and ${count.index}
+//How to use count and ${count.index}
 
 terraform {
   required_providers {
