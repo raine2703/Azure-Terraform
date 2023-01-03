@@ -5,6 +5,7 @@
 //terraform -version
 //terraform -validate
 //terraform plan -out main.tfplan
+//terraform plan -out main.tfplan -var="number-of-subnets=3"
 //terraform apply 
 //terraform apply main.tfplan   - defines plan we created before
 //terraform destroy
