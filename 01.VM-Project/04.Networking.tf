@@ -21,7 +21,7 @@ resource "azurerm_subnet" "subnets" {
   ]
 }
 
-//Creating NSG
+//Creating NSGs
 resource "azurerm_network_security_group" "network-security-group" {
   name                = local.nsg_name
   location            = local.location
