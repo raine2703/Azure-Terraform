@@ -29,7 +29,6 @@ resource "azurerm_network_interface" "vm1nic" {
   ]
 }
 
-
 //Creating VM
 resource "azurerm_windows_virtual_machine" "virtual-machine" {
   count=var.number-of-machines  
