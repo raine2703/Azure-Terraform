@@ -1,3 +1,4 @@
+//Creating Vnet
 resource "azurerm_virtual_network" "virtual-network" {
   name                = local.virtual_network.name
   address_space       = [local.virtual_network.adress_space]
@@ -8,6 +9,7 @@ resource "azurerm_virtual_network" "virtual-network" {
   ]
 }
 
+//Creating Subnets
 resource "azurerm_subnet" "subnets" {
   count=var.number-of-subnets
   name                 = "Subnet${count.index}"
@@ -19,6 +21,7 @@ resource "azurerm_subnet" "subnets" {
   ]
 }
 
+//Creating NSG
 resource "azurerm_network_security_group" "network-security-group" {
   name                = local.nsg_name
   location            = local.location
@@ -40,6 +43,7 @@ resource "azurerm_network_security_group" "network-security-group" {
   ]
 }
 
+//Assigning NSGs to Subnets
 resource "azurerm_subnet_network_security_group_association" "NSGAssociation" {
   count=var.number-of-subnets
   subnet_id                 = azurerm_subnet.subnets[count.index].id 
