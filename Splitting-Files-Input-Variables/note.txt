@@ -1,1 +1,0 @@
-Once terraform plan -out main.tfplan is initiated it looks true all files in Terraform folder.
