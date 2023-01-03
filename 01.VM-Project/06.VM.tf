@@ -38,6 +38,7 @@ resource "azurerm_windows_virtual_machine" "virtual-machine" {
   size                = local.vm_size
   admin_username      = local.vm_username
   admin_password      = local.vm_password
+  availability_set_id = azurerm_availability_set.availability-set.id
   network_interface_ids = [
     azurerm_network_interface.vm1nic[count.index].id,
   ]
