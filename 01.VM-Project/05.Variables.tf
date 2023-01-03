@@ -1,3 +1,4 @@
+//Defining variables
 variable "number-of-subnets" {
     type = number
     description = "Defines number of subnets"
