@@ -1,3 +1,4 @@
+//Defining locals
 locals {
 resource_group_name = "RG"
 location = "North Europe"
