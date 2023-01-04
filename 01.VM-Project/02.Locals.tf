@@ -9,7 +9,6 @@ virtual_network = {
 nsg_name = "NSG"
 vm_size = "Standard_B2s"
 vm_username = "adminuser"
-vm_password = "P@$$w0rd1234!"
 vm_storage_account_type = "Standard_LRS"
 vm_sku = "2022-Datacenter"
 }
