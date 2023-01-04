@@ -29,6 +29,17 @@ resource "azurerm_network_interface" "vm1nic" {
   ]
 }
 
+//Getting Password from Azure Key vault
+data "azurerm_key_vault" "rkv2703x" {
+  name                = "rkv2703x"
+  resource_group_name = "RG2"
+}
+
+data "azurerm_key_vault_secret" "vmpassword2" {
+  name         = "vmpassword2"
+  key_vault_id = data.azurerm_key_vault.rkv2703x.id
+}
+
 //Creating VM
 resource "azurerm_windows_virtual_machine" "virtual-machine" {
   count=var.number-of-machines  
@@ -37,7 +48,7 @@ resource "azurerm_windows_virtual_machine" "virtual-machine" {
   location            = local.location
   size                = local.vm_size
   admin_username      = local.vm_username
-  admin_password      = local.vm_password
+  admin_password      = data.azurerm_key_vault_secret.vmpassword2.value
   availability_set_id = azurerm_availability_set.availability-set.id
   network_interface_ids = [
     azurerm_network_interface.vm1nic[count.index].id,
@@ -59,3 +70,4 @@ resource "azurerm_windows_virtual_machine" "virtual-machine" {
     azurerm_resource_group.resource-group
   ]
 }
+
