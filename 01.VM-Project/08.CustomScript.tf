@@ -1,5 +1,4 @@
 //Creating a custom Script extension to install web server on all VMs
-
 resource "azurerm_storage_account" "rnstorage2703x56" {
   name                     = "rnstorage2703x56"
   resource_group_name      = local.resource_group_name
