@@ -1,4 +1,4 @@
-//Storage account with Container and Blob
+//Create Storage account with random name
 
 terraform {
   required_providers {
@@ -17,49 +17,36 @@ provider "azurerm" {
   features {}
 }
 
-
-//Creating Resources:
-
-resource "azurerm_resource_group" "RG" {
-  name     = "RnRG32"
-  location = "North Europe"
+locals {
+resource_group_name = "RG"
+storage_acc_name = "storage"
+location = "North Europe"
 }
 
-//Creating Storage account
+resource "azurerm_resource_group" "resource-group" {
+  name     = local.resource_group_name
+  location = local.location
+}
 
-resource "azurerm_storage_account" "rnstorageacc2703x52" {
-  name                     = "rnstorageacc2703x52"
-  resource_group_name      = azurerm_resource_group.RG.name
-  location                 = azurerm_resource_group.RG.location
+resource "random_uuid" "random-uuid" {
+}
+
+resource "azurerm_storage_account" "storage-account" {
+  name = lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)]))  
+  resource_group_name      = local.resource_group_name
+  location                 = local.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind = "StorageV2"
   depends_on = [
-    azurerm_resource_group.RG
+    azurerm_resource_group.resource-group,
+    random_uuid.random-uuid
   ]
 }
 
-//Creating Container
-
-resource "azurerm_storage_container" "files" {
-  name                  = "files"
-  storage_account_name  = azurerm_storage_account.rnstorageacc2703x52.name
-  container_access_type = "blob"
-  depends_on = [
-    azurerm_storage_account.rnstorageacc2703x52
-  ]
+output "Random-Number" {
+  value = random_uuid.random-uuid.result
 }
-
-//Creating Blob
-
-resource "azurerm_storage_blob" "txtfile" {
-  name                   = "txt.txt"
-  storage_account_name   = azurerm_storage_account.rnstorageacc2703x52.name
-  storage_container_name = azurerm_storage_container.files.name
-  type                   = "Block"
-  source                 = "txt.txt"
-  depends_on = [
-    azurerm_storage_container.files
-  ]
+output "Storage-Name" {
+  value = azurerm_storage_account.storage-account.name
 }
-
