@@ -10,6 +10,11 @@
 //terraform apply main.tfplan   - defines plan we created before
 //terraform destroy
 
+/* Showing outputs. 
+output "SubnetA-ID" {
+  value = azurerm_subnet.SubnetA.id
+}
+*/
 
 //Defining to use Azure as provider
 terraform {
