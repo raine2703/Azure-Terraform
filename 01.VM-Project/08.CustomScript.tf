@@ -1,7 +1,6 @@
 //Creating a custom Script extension to install web server on all VMs
 //As example script is created locally and then uplodated to Azure Storage from where azurerm_virtual_machine_extension takes it
-//Can't be uploaded and accessed from other storage account as it has network restrictions to allow traffic only from Azure Vnets or Specific VMs
-//"IP network rules can't be used in the following cases: To restrict access to clients in same Azure region as the storage account"
+//Can't be uploaded and accessed from other storage account as it has enabled Firewall.
 
 /*
 
