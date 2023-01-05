@@ -35,8 +35,6 @@ data "http" "ip" {
   url = "https://ifconfig.me/ip"
 }
 
-
-
 resource "azurerm_storage_account" "storage-account" {
   name = lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)]))  
   resource_group_name      = local.resource_group_name
