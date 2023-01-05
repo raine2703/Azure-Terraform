@@ -70,4 +70,3 @@ resource "azurerm_windows_virtual_machine" "virtual-machine" {
     azurerm_resource_group.resource-group
   ]
 }
-
