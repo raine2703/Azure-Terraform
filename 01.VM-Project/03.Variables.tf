@@ -1,11 +1,10 @@
 //Defining variables
 //Each VM has its own subnet so umber of VMs must be equal or less than subnets
 
-
 variable "number-of-subnets" {
     type = number
     description = "Defines number of subnets"
-    default = 1
+    default = 2
     validation {
         condition = var.number-of-subnets < 5
         error_message = "The number of subnets must be less than 5!"
