@@ -1,4 +1,4 @@
-//Create Storage account with random name
+//Create Storage account with random name and deny all connection rule
 
 terraform {
   required_providers {
@@ -31,6 +31,12 @@ resource "azurerm_resource_group" "resource-group" {
 resource "random_uuid" "random-uuid" {
 }
 
+data "http" "ip" {
+  url = "https://ifconfig.me/ip"
+}
+
+
+
 resource "azurerm_storage_account" "storage-account" {
   name = lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)]))  
   resource_group_name      = local.resource_group_name
@@ -42,6 +48,11 @@ resource "azurerm_storage_account" "storage-account" {
     azurerm_resource_group.resource-group,
     random_uuid.random-uuid
   ]
+    network_rules {
+    default_action             = "Deny"
+ //   ip_rules                   = [data.http.ip.response_body]
+ //   virtual_network_subnet_ids = [azurerm_subnet.example.id]
+  }
 }
 
 output "Random-Number" {
@@ -49,4 +60,7 @@ output "Random-Number" {
 }
 output "Storage-Name" {
   value = azurerm_storage_account.storage-account.name
+}
+output "ip" {
+  value = data.http.ip.response_body
 }
