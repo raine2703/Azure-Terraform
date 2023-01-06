@@ -1,5 +1,5 @@
-Terraform Set Up - Download Terraform, Add Environment variable in Windows, Choose provider and Start using Terraform!
-Terraform as application must be registered in AAD. Also it must be granted necessary RBAC permissions on Subscription level. Contributor as example.
+//Terraform Set Up - Download Terraform, Add Environment variable in Windows, Choose provider and Start using Terraform!
+//Terraform as application must be registered in AAD. Also it must be granted necessary RBAC permissions on Subscription level. Contributor as example.
 
 terrafrom init
 terraform -version
@@ -10,9 +10,18 @@ terraform apply
 terraform apply main.tfplan   - defines plan we created before
 terraform destroy
 
- Showing outputs. 
+Showing outputs. 
 output "SubnetA-ID" {
   value = azurerm_subnet.SubnetA.id
 }
 
+// Terraform graph
+
+https://www.terraform.io/cli/commands/graph
+
+You first need to install the GraphViz tool
+http://www.graphviz.org/download/
+
+terraform graph | dot -Tsvg > graph.svg
+Run this command from command prompt from the terraform folder
 
