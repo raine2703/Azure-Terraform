@@ -19,7 +19,7 @@ output "SubnetA-ID" {
 
 https://www.terraform.io/cli/commands/graph
 
-You first need to install the GraphViz tool
+You first need to install the GraphViz tool. Add it system path.
 http://www.graphviz.org/download/
 
 terraform graph | dot -Tsvg > graph.svg
