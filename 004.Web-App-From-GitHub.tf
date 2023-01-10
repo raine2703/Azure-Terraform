@@ -64,7 +64,7 @@ resource "azurerm_app_service_source_control" "appservice_sourcecontrol" {
   repo_url = "https://github.com/raine2703/WebApp"
 //Important that branch name is set correctly
   branch   = "main"
-//Example with manual Pull required. Without CI/CD.
+//Example with manual integration. Without CI/CD.
   use_manual_integration = true
   depends_on = [
     azurerm_windows_web_app.WebAppRn2703
