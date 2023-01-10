@@ -2,7 +2,6 @@
 //To log in: ssh -i .\linuxkey.pem adminuser@20.223.183.94
 //Installing nginx with custom script
 
-
 //Generate key for linux vm
 resource "tls_private_key" "linuxkey" {
   algorithm = "RSA"
