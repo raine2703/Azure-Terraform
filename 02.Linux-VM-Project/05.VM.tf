@@ -2,6 +2,27 @@
 //To log in: ssh -i .\linuxkey.pem adminuser@20.223.183.94
 //Installing nginx with custom script
 
+
+//Generate key for linux vm
+resource "tls_private_key" "linuxkey" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+//Stores the key in linuxkey.pem file to be able to log in. NOT RECOMENDED FOR PRODUCTION.
+resource "local_file" "linuxpemkey"{
+  filename = "linuxkey.pem"
+  content=tls_private_key.linuxkey.private_key_pem
+  depends_on = [
+    tls_private_key.linuxkey
+  ]
+}
+
+//Defining location for Script to install nginx on Linux VM
+data "template_file" "cloudinitdata" {
+    template = file("script.sh")
+}
+
 //Creating Linux VM
 resource "azurerm_linux_virtual_machine" "virtual-machine" {
   name                = local.vm_name
