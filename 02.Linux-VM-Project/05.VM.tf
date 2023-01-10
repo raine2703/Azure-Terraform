@@ -17,7 +17,8 @@ resource "local_file" "linuxpemkey"{
   ]
 }
 
-//Defining location for Script to install nginx on Linux VM
+//Defining location for Script to install Nginx on Linux VM
+//Data sources allow Terraform to use information defined outside of Terraform
 data "template_file" "cloudinitdata" {
     template = file("script.sh")
 }
