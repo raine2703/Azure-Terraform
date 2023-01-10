@@ -17,9 +17,6 @@ provider "azurerm" {
   features {}
 }
 
-
-
-
 //Defining local variables
 locals {
   resource_group_name = "RG"
@@ -49,10 +46,6 @@ locals {
     }
   ]
 }
-
-
-
-
 
 //Creating Resource Group
 resource "azurerm_resource_group" "resource-group" {
@@ -210,9 +203,7 @@ resource "azurerm_virtual_machine_data_disk_attachment" "azurerm_virtual_machine
   ]
 }
 
-
 //Showing outputs. Might become useful.
 output "SubnetA-ID" {
   value = azurerm_subnet.SubnetA.id
 }
-
