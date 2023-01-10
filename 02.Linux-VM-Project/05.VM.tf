@@ -1,6 +1,8 @@
 //Creating Linux VM with SSH key.
 //To log in: ssh -i .\linuxkey.pem adminuser@20.223.183.94
-//Installing nginx with custom script
+//Installing nginx with custom script 
+//Copy file from local pc to Linux vm
+
 
 //Generate key for linux vm
 resource "tls_private_key" "linuxkey" {
