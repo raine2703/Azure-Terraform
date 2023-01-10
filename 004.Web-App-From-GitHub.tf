@@ -1,3 +1,4 @@
+//Creating Azure App Service plan with Web app. Source code used from Github.
 terraform {
   required_providers {
     azurerm = {
@@ -27,6 +28,7 @@ resource "azurerm_resource_group" "resource-group" {
   location = local.location
 }
 
+//Creating B1 service plan. F1 is for free.
 resource "azurerm_service_plan" "ServicePlan" {
   name                = "ServicePlan"
   resource_group_name = local.resource_group_name
@@ -38,8 +40,9 @@ resource "azurerm_service_plan" "ServicePlan" {
   ]
 }
 
-resource "azurerm_windows_web_app" "WebApp" {
-  name                = "WebAppx2dsa1x"
+//Creating Web App
+resource "azurerm_windows_web_app" "WebAppRn2703" {
+  name                = "WebAppRn2703"
   resource_group_name = local.resource_group_name
   location            = local.location
   service_plan_id     = azurerm_service_plan.ServicePlan.id
@@ -55,13 +58,14 @@ resource "azurerm_windows_web_app" "WebApp" {
   ]
 }
 
-//Must test why my webapp6 not working
+//Adding Github Repo as source
 resource "azurerm_app_service_source_control" "appservice_sourcecontrol" {
-  app_id   = azurerm_windows_web_app.WebApp.id
-  repo_url = "https://github.com/alashro/webapp"
-  branch   = "master"
+  app_id   = azurerm_windows_web_app.WebAppRn2703.id
+  repo_url = "https://github.com/raine2703/WebApp"
+//Important that branch name is set correctly
+  branch   = "main"
   use_manual_integration = true
   depends_on = [
-    azurerm_windows_web_app.WebApp
+    azurerm_windows_web_app.WebAppRn2703
   ]
 }
