@@ -1,6 +1,7 @@
 //Terraform Set Up - Download Terraform, Add Environment variable in Windows, Choose provider and Start using Terraform!
 //Terraform as application must be registered in AAD. Also it must be granted necessary RBAC permissions on Subscription level. Contributor as example.
 
+create main.tf file
 terrafrom init
 terraform -version
 terraform -validate
