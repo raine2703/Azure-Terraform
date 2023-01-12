@@ -13,7 +13,7 @@ resource "azurerm_windows_web_app_slot" "staging" {
   ]
 }
 
-//Uploading code to new deployment slot. Use portal to swap manually.
+//Uploading code from Github Repo to new deployment slot. Use portal to swap manually.
 resource "azurerm_app_service_source_control_slot" "example" {
   slot_id  = azurerm_windows_web_app_slot.staging.id
   repo_url = local.staging_repository
