@@ -1,6 +1,6 @@
 //Creating azure service plan, web app, deployment slot and enabled server logging
 
-//Creating S1 service plan.  S1 needed to have Deployment Slots
+//Creating S1 Service plan.  S1 needed to have Deployment Slots
 resource "azurerm_service_plan" "ServicePlan" {
   name                = local.service_plan_name
   resource_group_name = local.resource_group_name
