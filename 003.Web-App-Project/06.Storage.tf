@@ -1,4 +1,4 @@
-//Creating Storage account, container, SAS token
+//Creating Storage account, Container, SAS token
 
 //For random storage name
 resource "random_uuid" "random-uuid" {
