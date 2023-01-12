@@ -1,5 +1,4 @@
-//How to use For Each Meta Argument
-  
+//How to use For Each Meta Argument  
 terraform {
   required_providers {
     azurerm = {
