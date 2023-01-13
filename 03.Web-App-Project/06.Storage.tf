@@ -1,4 +1,4 @@
-//Creating Storage account, Container, SAS token
+//Creating Storage account, Container, SAS token. For Web server logs.
 
 //For random storage name
 resource "random_uuid" "random-uuid" {
