@@ -34,7 +34,6 @@ resource "azurerm_monitor_diagnostic_setting" "diagnosticsetting" {
       enabled = false
     }
   }
-
   depends_on = [
     azurerm_log_analytics_workspace.dbworkspace,
     azurerm_mssql_database.db1
