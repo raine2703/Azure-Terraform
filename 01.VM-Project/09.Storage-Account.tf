@@ -24,6 +24,7 @@ resource "azurerm_storage_account" "storage-account" {
   ]
     network_rules {
     default_action             = "Deny"
+//By default all network connections denied. Allowing my ip.
     ip_rules                   = [data.http.ip.response_body]
     virtual_network_subnet_ids = azurerm_subnet.subnets.*.id
   }
