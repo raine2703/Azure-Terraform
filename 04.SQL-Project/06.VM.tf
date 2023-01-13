@@ -11,7 +11,6 @@ resource "azurerm_public_ip" "Public-IP" {
   ]
 }
 
-
 //Creating NIC
 resource "azurerm_network_interface" "vm1nic" {
   name                = "vm1nic"
@@ -29,6 +28,7 @@ resource "azurerm_network_interface" "vm1nic" {
   ]
 }
 
+//VM Password from Key Vault
 data "azurerm_key_vault_secret" "vmpassword2" {
   name         = "vmpassword2"
   key_vault_id = data.azurerm_key_vault.rkv2703x.id
