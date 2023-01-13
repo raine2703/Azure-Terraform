@@ -17,6 +17,7 @@ data "http" "ip" {
   url = "https://ifconfig.me/ip"
 }
 
+//Creating SQL server
 resource "azurerm_mssql_server" "sqlserver" {
   name                         = local.sqlservername
   resource_group_name          = local.resource_group_name
