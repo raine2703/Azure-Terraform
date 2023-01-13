@@ -16,6 +16,7 @@ resource "azurerm_subnet" "subnets" {
   resource_group_name  = local.resource_group_name
   virtual_network_name = local.virtual_network.name
   address_prefixes     = ["10.0.${count.index}.0/24"]
+//Adding Service endpoint for storage
   service_endpoints = ["Microsoft.Storage"]
   depends_on = [
     azurerm_virtual_network.virtual-network
