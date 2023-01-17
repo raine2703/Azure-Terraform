@@ -10,8 +10,8 @@ Networking:
  
 SQL server name: dbserver2013x:
   Databases DB1 and DB2.
-  LogIn Password from keyvault data.azurerm_key_vault.rkv2703x.id.
-  SQL server firwall rules: Allow connection from SubnetA and my local ipaddress.
+  Login Password from keyvault data.azurerm_key_vault.rkv2703x.id.
+  SQL server firewall rules: Allow connection from SubnetA and my local ip address.
   DB1 has enabled auditing for SQLSecurityAuditEvents logs sent to LAW dbworkspace.
   With sqlcmd connecting to DB1 and Creating database named Products. Inserting some data in to it. SSMS must be installed locally for this to work.
     
