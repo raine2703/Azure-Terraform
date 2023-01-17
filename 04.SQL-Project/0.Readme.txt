@@ -1,4 +1,4 @@
-PaaS Project to create Azure SQL server and Databases running on it. 
+PaaS project to create Azure SQL server and Databases running on it. 
 
 Resource group name: RG3.
 
