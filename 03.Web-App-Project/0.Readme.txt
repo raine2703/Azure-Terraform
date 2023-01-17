@@ -19,10 +19,3 @@ Storage Account:
   SAS permissions: read, add, write, delete list
   Full SAS: https://${azurerm_storage_account.storage-account.name}.blob.core.windows.net/${azurerm_storage_container.logs.name}${data.azurerm_storage_account_blob_container_sas.accountsas.sas
   
-  
-  
-  
-  
-  
-  
-  
