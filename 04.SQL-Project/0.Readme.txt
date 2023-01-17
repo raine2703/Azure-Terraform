@@ -6,14 +6,14 @@ Networking:
   Service Endpoint Microsoft.Sql enabled for SubnetA.
   NSG that allows RDP connection all VMs in SubnetA. Ment for vm1.
  
- SQL server name: dbserver2013x:
+SQL server name: dbserver2013x:
   Databases DB1 and DB2.
   LogIn Password from keyvault data.azurerm_key_vault.rkv2703x.id.
   SQL server firwall rules: Allow connection from SubnetA and my local ipaddress.
   DB1 has enabled auditing for SQLSecurityAuditEvents logs sent to LAW dbworkspace.
   With sqlcmd connecting to DB1 and Creating database named Products. Inserting some data in to it.
     
- Virtual Machine name: vm1. Used to test connection to dbserver2013x from SubnetA.
+Virtual Machine name: vm1. Used to test connection to dbserver2013x from SubnetA.
   NIC: vm1nic
   Subnet: SubnetA
   PublicIP: ${local.vm_name}-publicip
