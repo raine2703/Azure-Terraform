@@ -11,7 +11,7 @@ resource "azurerm_virtual_network" "virtual-network" {
   ]
 }
 
-//Creating Subnet
+//Creating SubnetA
 resource "azurerm_subnet" "SubnetA" {
   name                 = "SubnetA"
   resource_group_name  = local.resource_group_name
