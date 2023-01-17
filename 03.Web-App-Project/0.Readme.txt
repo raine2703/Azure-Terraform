@@ -1,1 +1,28 @@
+PaaS project to create Web App running in Azure with two deployment slots. Logs saved to Azure Storage Account. Application insights enabled. Deployment slot source code used from github. Testing web app firewall options as well.
 
+Resource group name: RG3
+
+Service plan name: ServicePlan
+  Sku: S1 to have deployment slots.
+  
+WebApp name: WebAppRn2703
+  Stack: Dotnet 6.0.
+  Firewall rule to deny all traffic to web app by default.
+  Web Server Logs stored to azure_blob_storage. Connection to blobl storage enabled with sas_url.
+  Application Insights enabled to laworkspaceforwebapp.
+  Creating aditional deploment slot named stagig.
+    staging deployment slot source code used from https://github.com/raine2703/WebApp
+
+Storage Account:
+  Name: lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)])) 
+  Blob container for logs: logs
+  SAS permissions: read, add, write, delete list
+  Full SAS: https://${azurerm_storage_account.storage-account.name}.blob.core.windows.net/${azurerm_storage_container.logs.name}${data.azurerm_storage_account_blob_container_sas.accountsas.sas
+  
+  
+  
+  
+  
+  
+  
+  
