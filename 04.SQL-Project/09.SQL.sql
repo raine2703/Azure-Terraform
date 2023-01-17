@@ -1,4 +1,4 @@
-//Creating a table and inserting data in to it
+--Creating a table and inserting data in to it
 CREATE TABLE Products
 (
      ProductID int,
