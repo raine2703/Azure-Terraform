@@ -21,7 +21,7 @@ resource "azurerm_mssql_database_extended_auditing_policy" "sqlauditing" {
   ]  
 }
 
-//Sending diagnostic settubg SQLSecurityAuditEvents to dbworkspace
+//Sending diagnostic setting SQLSecurityAuditEvents to dbworkspace
 resource "azurerm_monitor_diagnostic_setting" "diagnosticsetting" {
   name               = "${azurerm_mssql_database.db1.name}-setting"
   target_resource_id = "${azurerm_mssql_database.db1.id}"
