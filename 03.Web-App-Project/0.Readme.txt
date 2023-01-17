@@ -1,6 +1,4 @@
-PaaS project to create Web App running in Azure with two deployment slots. 
-Logs saved to Azure Storage Account. Application insights enabled. 
-Staging deployment slot source code used from github. Testing Firewall as well.
+PaaS project to create Web App running in Azure with two deployment slots. Logs saved to Azure Storage Account. Application insights enabled. Staging deployment slot source code used from github. Testing Firewall to deny traffic to WebApp.
 
 Resource group name: RG3
 
