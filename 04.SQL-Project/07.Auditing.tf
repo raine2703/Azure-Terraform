@@ -1,4 +1,4 @@
-//Auditing for db1
+//Enabling auditing for db1 to Log Analytics Workspace
 
 //Creating LAW for to enable Auditing
 resource "azurerm_log_analytics_workspace" "dbworkspace" {
