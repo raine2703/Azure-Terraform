@@ -8,9 +8,9 @@ Service plan name: ServicePlan
 WebApp name: WebAppRn2703
   Stack: Dotnet 6.0.
   Firewall rule to deny all traffic to web app by default.
-  Web Server Logs stored to azure_blob_storage. Connection to blobl storage enabled with sas_url.
+  Web Server Logs stored to azure_blob_storage. Connection to blob storage enabled with sas_url.
   Application Insights enabled to laworkspaceforwebapp.
-  Creating aditional deploment slot named stagig.
+  Creating additional deployment slot named stagig.
     staging deployment slot source code used from https://github.com/raine2703/WebApp
 
 Storage Account:
