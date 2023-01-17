@@ -11,10 +11,10 @@ WebApp name: WebAppRn2703
   Web Server Logs stored to azure_blob_storage. Connection to blob storage enabled with sas_url.
   Application Insights enabled to laworkspaceforwebapp.
   Creating additional deployment slot named stagig.
-  Staging deployment slot source code used from https://github.com/raine2703/WebApp
+  Staging deployment slot source code used from https://github.com/raine2703/WebApp.
 
 Storage Account:
-  Name: lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)])) 
-  Blob container: logs
-  SAS permissions: read, add, write, delete list
+  Name: lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)])).
+  Blob container: logs.
+  SAS permissions: read, add, write, delete list.
   
