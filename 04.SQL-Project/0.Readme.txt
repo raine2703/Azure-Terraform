@@ -18,3 +18,4 @@ Networking:
   Subnet: SubnetA
   PublicIP: ${local.vm_name}-publicip
   LogIn Password used from keyvault data.azurerm_key_vault.rkv2703x.id
+
