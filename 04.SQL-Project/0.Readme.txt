@@ -1,3 +1,5 @@
+PaaS Project to create Azure SQL server and Databases running on it. 
+
 Creating a Resource group name RG3.
 
 Networking:
