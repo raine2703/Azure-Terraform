@@ -1,1 +1,15 @@
+IaaS project to create Linux VM running in Azure.
 
+Resource group name: RG
+
+Virtual Network:
+  With two subnets: SubnetA and SubnetB.
+  NSG allows SSH and HTP connections.
+  NSG assigned to SubnetA.
+  Public ip assigned to VM NIC
+  
+Virtual Machine:
+  tls_private_key public/private key used for authentication.
+  custom script script.sh executed on VM to install nginx.
+  /var/www/html/Default.html copied over to VM.
+  
