@@ -1,6 +1,6 @@
 //Creating a custom Script extension to install web server on all VMs
 //As example script is created locally and then uplodated to Azure Storage from where azurerm_virtual_machine_extension takes it
-//Can't be uploaded and accessed from other storage account as it has enabled Firewall.
+//Can't be uploaded to Storage-Account.tf as it has enabled Firewall. Creating new Storage Account for this example.
 
 resource "azurerm_storage_account" "rnstorage2703x56" {
   name                     = "rnstorage2703x56"
