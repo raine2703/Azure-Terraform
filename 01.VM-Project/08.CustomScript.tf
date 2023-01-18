@@ -2,6 +2,7 @@
 //As example script is created locally and then uplodated to Azure Storage from where azurerm_virtual_machine_extension takes it
 //Can't be uploaded to Storage-Account.tf as it has enabled Firewall. Creating new Storage Account for this example.
 
+//Creating Storage Account
 resource "azurerm_storage_account" "rnstorage2703x56" {
   name                     = "rnstorage2703x56"
   resource_group_name      = local.resource_group_name
@@ -14,6 +15,7 @@ resource "azurerm_storage_account" "rnstorage2703x56" {
   ]
 }
 
+//Creating blob container
 resource "azurerm_storage_container" "data" {
   name                  = "data"
   storage_account_name  = "rnstorage2703x56"
@@ -23,6 +25,7 @@ resource "azurerm_storage_container" "data" {
     ]
 }
 
+//Uploading script to container
 resource "azurerm_storage_blob" "IISConfig" {
   name                   = "IIS-Config.ps1"
   storage_account_name   = "rnstorage2703x56"
@@ -32,6 +35,7 @@ resource "azurerm_storage_blob" "IISConfig" {
    depends_on=[azurerm_storage_container.data]
 }
 
+//Running script on all vms
 resource "azurerm_virtual_machine_extension" "vmextension" {
   count=var.number-of-machines  
   name                 = "vmextension"
