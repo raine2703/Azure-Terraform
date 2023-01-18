@@ -1,4 +1,6 @@
+
 //Creating Azure App Service plan with Web app. Source code used from Github.
+  
 terraform {
   required_providers {
     azurerm = {
