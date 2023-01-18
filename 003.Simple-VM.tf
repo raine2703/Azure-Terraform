@@ -1,4 +1,6 @@
+
 //Creating VM with Vnet, Subnets, NIC, NSG, NSG Rule, Subnet-NSG association.
+  
 terraform {
   required_providers {
     azurerm = {
