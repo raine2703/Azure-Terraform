@@ -1,1 +1,26 @@
+IaaS project to create VM running in Azure.
 
+Resourece group name: RG
+
+Networking:
+  Virtual Network name: vnet.
+  Subnets created based on input value count=var.number-of-subnets.
+  Service Endpoint Microsoft.Storage enabled for all subnets.
+  NSG that allows RDP and HTTP connections to Vms. Attached to Subnets.
+  
+Virtual machines:
+  VMs, Nics, Public ip addresses created based on var.number-of-machines. Naming automated with ${count.index}.
+  Log in passwords used from data.azurerm_key_vault.rkv2703x.id.
+  All Virtual machines placed in Availability set.
+  
+Custom extensions for VMs:
+  Installing Web Server on all VMs.
+  IIS-Config.ps1 custom script stored in rnstorage2703x56 container named data. 
+  Executed as public available script from Azure storage with fileUris parameter.
+  
+Storage Account
+  Automating naming with lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)])).
+  Firewall rules allowing connections to Storage Account from my ip address and subnets in vnet.
+  Idea was to grant access to Storage Account only from VMs in vnet and my personal PC.
+  
+  
