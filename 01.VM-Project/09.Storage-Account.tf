@@ -24,7 +24,7 @@ resource "azurerm_storage_account" "storage-account" {
   ]
     network_rules {
     default_action             = "Deny"
-//By default all network connections denied. Allowing only my ip (that is not in the same region as SA)
+//By default all network connections denied. Allowing only my ip. Important to notice Storage Region firewall restrictions for this to work.
     ip_rules                   = [data.http.ip.response_body]
 //Another firewall rule for Vms
     virtual_network_subnet_ids = azurerm_subnet.subnets.*.id
