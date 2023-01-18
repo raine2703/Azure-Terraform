@@ -1,4 +1,6 @@
+
 // Storage tags added with For expression
+
 terraform {
   required_providers {
     azurerm = {
