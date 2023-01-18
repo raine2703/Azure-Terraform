@@ -1,5 +1,5 @@
 
-//Creating Storage account with random name and deny all connection rule
+//Creating Storage account with random name and deny all connection firewall rule
 
 terraform {
   required_providers {
