@@ -1,7 +1,7 @@
 //Creating a custom Script extension to install web server on all VMs
 //As example script is created locally and then uplodated to Azure Storage from where azurerm_virtual_machine_extension takes it
+  
 //Can't be uploaded to Storage-Account.tf as it has enabled Firewall. Creating new Storage Account for this example.
-
 /* Services deployed in the same region as the storage account use private Azure IP addresses for communication. 
 Thus, you can't restrict access to specific Azure services based on their public outbound IP address range. */
 
