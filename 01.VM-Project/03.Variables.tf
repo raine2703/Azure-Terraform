@@ -1,5 +1,6 @@
 //Defining variables
-//Each VM has its own subnet so umber of VMs must be equal or less than subnets
+//Each VM has its own subnet so number of VMs must be equal or less than subnets.
+//To pass variables when plan: terraform plan -out main.tfplan -var="number-of-subnets=3"
 
 variable "number-of-subnets" {
     type = number
