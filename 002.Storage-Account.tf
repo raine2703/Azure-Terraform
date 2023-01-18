@@ -29,13 +29,16 @@ resource "azurerm_resource_group" "resource-group" {
   location = local.location
 }
 
+//generating random number
 resource "random_uuid" "random-uuid" {
 }
 
+//Getting my ip, incase i want to allow my PC access to SA
 data "http" "ip" {
   url = "https://ifconfig.me/ip"
 }
 
+//Creating SA
 resource "azurerm_storage_account" "storage-account" {
   name = lower(join("", ["${local.storage_acc_name}", substr(random_uuid.random-uuid.result,0,8)]))  
   resource_group_name      = local.resource_group_name
@@ -54,6 +57,7 @@ resource "azurerm_storage_account" "storage-account" {
   }
 }
 
+//Checking outputs
 output "Random-Number" {
   value = random_uuid.random-uuid.result
 }
