@@ -2,8 +2,6 @@
 //As example script is created locally and then uplodated to Azure Storage from where azurerm_virtual_machine_extension takes it
 //Can't be uploaded and accessed from other storage account as it has enabled Firewall.
 
-/*
-
 resource "azurerm_storage_account" "rnstorage2703x56" {
   name                     = "rnstorage2703x56"
   resource_group_name      = local.resource_group_name
@@ -55,5 +53,3 @@ depends_on = [
 ]
 
 }
-
-*/
