@@ -1,4 +1,6 @@
+
 // Creating NSG rules with Dynamic blocks
+
 terraform {
   required_providers {
     azurerm = {
