@@ -1,4 +1,6 @@
+
 //How to use For Each Meta Argument  
+
 terraform {
   required_providers {
     azurerm = {
@@ -97,6 +99,3 @@ resource "azurerm_storage_blob" "testfiles" {
         azurerm_storage_container.container
   ]
 }
-
-
-
