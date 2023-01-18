@@ -1,4 +1,4 @@
-#cloud-config
+#Custom VM script
 package_upgrade: true
 packages:
   - nginx
