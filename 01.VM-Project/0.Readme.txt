@@ -1,4 +1,4 @@
-IaaS project to create VM running in Azure.
+IaaS project to create Windows VM running in Azure.
 
 Resource group name: RG
 
