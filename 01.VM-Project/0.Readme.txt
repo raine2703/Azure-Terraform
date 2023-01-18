@@ -1,6 +1,6 @@
 IaaS project to create VM running in Azure.
 
-Resourece group name: RG
+Resource group name: RG
 
 Networking:
   Virtual Network name: vnet.
