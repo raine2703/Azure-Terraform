@@ -23,4 +23,3 @@ Storage Account
   Firewall rules allowing connections to Storage Account from my ip address and subnets in vnet.
   Idea was to grant access to Storage Account only from VMs in vnet and my personal PC.
   
-  
