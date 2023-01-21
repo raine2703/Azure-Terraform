@@ -1,6 +1,4 @@
-# The storage account will be used to store the script for Custom Script extension
-
-//Creating storage for custom script extension
+//Creating storage account. Will be used to save CS
 resource "azurerm_storage_account" "vmstore4577687" {
   name                     = "vmstore4577687x"
   resource_group_name      = local.resource_group_name
