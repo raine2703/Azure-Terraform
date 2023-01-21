@@ -17,3 +17,4 @@ Load Balancer
     Backend Pool: scalesetpool
     Health probe for monitoring on port 80: probeA
     RuleA: Defines that requests to LB are routed to Backend pool.
+    
