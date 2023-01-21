@@ -1,0 +1,19 @@
+Project for Azure Load balances and Virtual Machine scale set
+
+Networking
+    One vnet with one subnet
+    NSG that allows RDP and HTTP ports
+
+Virtual Machine Scale set  
+    Default VM count: 2
+    Only private ip addresses. No public direct access from web.
+    Upgrade mode: automatic so that custom script is automatically installed
+    Custom script on each VM installs web server
+    All vm's added to load_balancer_backend_address_pool
+
+Load Balancer
+    SKU: Standard Regional
+    Public ip address
+    Backend Pool: scalesetpool
+    Health probe for monitoring on port 80: probeA
+    RuleA: Defines that requests to LB are routed to Backend pool.
