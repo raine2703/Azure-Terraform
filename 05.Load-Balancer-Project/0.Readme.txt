@@ -1,4 +1,6 @@
-Project for Azure Load balances and Virtual Machine scale set
+Project for Azure Load balancer and Virtual Machine scale set.
+
+Azure Load balaner = Regional Routing
 
 Networking
     One vnet with one subnet
