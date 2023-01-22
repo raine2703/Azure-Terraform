@@ -1,4 +1,4 @@
-Projet for Application Gateway. Filtering http requests to different vms based on path.
+Projet for Application Gateway. Filtering http requests to different vms based on url path.
 
 Layer 7 load balancing. Regional.
 
