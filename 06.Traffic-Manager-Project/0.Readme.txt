@@ -1,6 +1,6 @@
 Project for Traffic Manager
 
-Traffic Manager = Global Load Balancing across Regions
+Traffic Manager = Global Load Balancing across Regions. Layer 7.
 
 Exploring how Traffic manager routes requests to Azure web apps depending on traffic_routing_method's. 
 
