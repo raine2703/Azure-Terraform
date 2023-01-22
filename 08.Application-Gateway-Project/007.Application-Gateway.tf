@@ -73,7 +73,8 @@ resource "azurerm_application_gateway" "appgateway" {
     }
    }
 
-      backend_http_settings {
+ //Backend http settings
+ backend_http_settings {
     name                  = "HTTPSetting"
     cookie_based_affinity = "Disabled"
     path                  = ""
@@ -82,6 +83,7 @@ resource "azurerm_application_gateway" "appgateway" {
     request_timeout       = 60
   }
 
+ //Defininf listener 
  http_listener {
     name                           = "gateway-listener"
     frontend_ip_configuration_name = "front-end-ip-config"
@@ -89,6 +91,7 @@ resource "azurerm_application_gateway" "appgateway" {
     protocol                       = "Http"
   }
 
+ //Creating Routing rule 
  request_routing_rule {
     name               = "RoutingRuleA"
     rule_type          = "PathBasedRouting"
