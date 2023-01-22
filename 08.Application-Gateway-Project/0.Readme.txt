@@ -8,8 +8,8 @@ Netwrorking:
 
 Virtual Machines:
     Two Virtual machines with IIS installed via custom script.
-    Each VM has its own custom script
-    No public IP
+    Each VM has its own "Role" displayed in default.htm page.
+    No public direct access to vms possible. Only private ip addresses.
 
 Application Gateway:
     Requires its own subnet
