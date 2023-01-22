@@ -26,8 +26,7 @@ resource "azurerm_network_security_group" "network-security-group" {
   location            = local.location
   resource_group_name = local.resource_group_name
 
-//Defing NSG rule as Dynamic Block with multiple possible input variables
-
+  //Defing NSG rule as Dynamic Block with multiple possible input variables
   dynamic "security_rule" {
     for_each = local.networksecuritygroup_rules
     content {
