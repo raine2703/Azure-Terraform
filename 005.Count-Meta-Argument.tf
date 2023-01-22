@@ -15,3 +15,4 @@ resource "azurerm_storage_account" "rnstorageacc2703x52" {
 }
 
 //In result 3 Storage accounts will be created
+
