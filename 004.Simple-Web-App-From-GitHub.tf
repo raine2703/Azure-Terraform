@@ -1,6 +1,7 @@
 
 //Creating Azure App Service plan with Web app. Source code used from Github.
   
+//Defining local variables
 locals {
   resource_group_name = "RG3"
   location = "North Europe"
