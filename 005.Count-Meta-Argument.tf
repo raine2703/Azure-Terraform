@@ -13,3 +13,4 @@ resource "azurerm_storage_account" "rnstorageacc2703x52" {
     azurerm_resource_group.RG
   ]
 }
+
