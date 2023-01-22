@@ -1,12 +1,14 @@
 
 //Creating Storage account with random name and deny all connection firewall rule.
 
+//Defining local variables
 locals {
 resource_group_name = "RG"
 storage_acc_name = "storage"
 location = "North Europe"
 }
 
+//Creating resource group
 resource "azurerm_resource_group" "resource-group" {
   name     = local.resource_group_name
   location = local.location
