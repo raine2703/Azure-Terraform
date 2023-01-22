@@ -19,3 +19,4 @@ Application Gateway:
             With Listener to frontend address on port 80 HTTP.
             Path based routing /images/ for imagesvm
             Path based routing /videos/ for videosvm
+                
