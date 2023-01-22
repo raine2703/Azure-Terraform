@@ -10,7 +10,6 @@ resource "azurerm_public_ip" "gatewayip" {
   depends_on = [
     azurerm_resource_group.resource-group
   ]
-
 }
 
 //Additional subnet in the virtual network for gateway
