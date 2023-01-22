@@ -45,3 +45,4 @@ resource "azurerm_network_security_group" "network-security-group" {
         azurerm_resource_group.resource-group
   ]
 }
+
