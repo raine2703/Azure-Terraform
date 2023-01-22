@@ -1,0 +1,16 @@
+Project for vnet peering.
+
+Experimenting with for_each.
+
+Networking:
+    Two virtual networks.
+    Using cidrsubnet() for subnets.
+
+Virtual machines:
+    Two VMs - production and test to check peering.
+
+Custom Script:
+    Installing IIS on Production VM.
+
+Peering.
+    Result: When peering test-vnet and production-vnet is peered both vms can access each other via private ip addresses.
