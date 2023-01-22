@@ -1,5 +1,5 @@
-# The storage account will be used to store the script for Custom Script extension
 
+//Creating Storage Account
 resource "azurerm_storage_account" "rnstorage2783x" {
   name                     = "rnstorage2783"
   resource_group_name      = local.resource_group_name
