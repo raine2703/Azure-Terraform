@@ -102,6 +102,7 @@ resource "azurerm_application_gateway" "appgateway" {
     default_backend_address_pool_name   = "${local.role[0]}-pool"
     default_backend_http_settings_name  = "HTTPSetting"
    
+     //dynamically adding paths for routing     
      dynamic path_rule {
       for_each = toset(local.role)
        content {
