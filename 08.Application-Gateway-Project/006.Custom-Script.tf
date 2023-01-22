@@ -1,4 +1,4 @@
-//Storage account for cs
+//Storage account for Custom Script
 resource "azurerm_storage_account" "rnstorage23x1" {
   name                     = "rnstorage23x1"
   resource_group_name      = local.resource_group_name
