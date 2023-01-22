@@ -20,3 +20,8 @@ Application Gateway:
             Path based routing /images/ for imagesvm
             Path based routing /videos/ for videosvm
                 
+Check:
+http://20.234.90.229/images/default.html  - Routed to imagesvm
+http://20.234.90.229/videos/default.html  - Routed to videosvm
+
+20.234.90.229 - Application Gateway IP
