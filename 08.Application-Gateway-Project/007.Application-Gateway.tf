@@ -53,7 +53,6 @@ resource "azurerm_application_gateway" "appgateway" {
     name                 = "front-end-ip-config"
     public_ip_address_id = azurerm_public_ip.gatewayip.id    
   }
-
   depends_on = [
     azurerm_public_ip.gatewayip,
     azurerm_subnet.subnetA,
