@@ -1,6 +1,6 @@
 Project for Azure Load balancer and Virtual Machine scale set.
 
-Azure Load balaner = Regional Load Balancing within Region
+Azure Load balaner = Regional Load Balancing within Region. Layer 4.
 
 Networking
     One vnet with one subnet
