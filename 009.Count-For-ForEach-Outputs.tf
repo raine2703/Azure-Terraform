@@ -23,7 +23,6 @@ locals {
 }
 
 //Count example for Storage
-//Result - Created 3 storage accounts with numbering 0,1,2
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
   count = 2 
   name                     = "${count.index}countstoragern2"
