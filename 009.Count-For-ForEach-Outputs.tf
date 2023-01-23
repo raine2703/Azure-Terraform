@@ -20,9 +20,14 @@ locals {
     name = "vnet"
     address_space = "10.0.0.0/16"
   }
+  common-tags = {
+    "environment" = "staging"
+    "tier" = 3
+    "department" = "IT"
+  }
 }
 
-//Count example for Storage
+//Count example for Storage with for tags
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
   count = 2 
   name                     = "${count.index}countstoragern2"
@@ -31,6 +36,14 @@ resource "azurerm_storage_account" "rnstorageacc2703x52" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind = "StorageV2"
+  tags = {
+    //environment = local.common-tags.environment
+    //tier = local.common-tags.tier
+    //department = local.common-tags.department
+
+    //Instead using FOR expression:
+    for a,b in local.common-tags : a=>"${b}" 
+  }
   depends_on = [
     azurerm_resource_group.resource-group
   ]
@@ -39,6 +52,17 @@ resource "azurerm_storage_account" "rnstorageacc2703x52" {
 output "Count-StorageID-from-resourceblock" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52 : x.id ]
 }
+
+//Creat 3 containers to rnstorageacc2703x52
+resource "azurerm_storage_container" "container" {
+  //for_each = toset([ "data","files","documents" ]) possbile?
+  count = 2
+      //name                  = each.key
+      name                  = "container"
+      storage_account_name  = azurerm_storage_account.rnstorageacc2703x52[count.index].name
+      container_access_type = "blob"
+}
+
 
 //Count example for RG
 resource "azurerm_resource_group" "RG012" {
@@ -105,3 +129,5 @@ output "vnet-key-value" {
   value = [for a, b in local.virtual_network : "Key is ${a}, value is ${b}"]
   //formula [for k, v in var.map : length(k) + length(v)] 
 }
+
+
