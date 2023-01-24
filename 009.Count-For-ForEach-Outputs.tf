@@ -28,12 +28,10 @@ locals {
 }
   
   
-  
 resource "azurerm_resource_group" "resource-group" {
   name     = local.resource_group_name
   location = local.location
 } 
-  
   
   
 //Count example for Storage with for tags
@@ -85,9 +83,9 @@ resource "azurerm_resource_group" "RG012" {
   
     name     = "${count.index}RG"
     location = "North Europe"
+  
 }
 
-  
   
 //For_each example for Storage Account
 resource "azurerm_storage_account" "rnstorageacc2703x52x" {
@@ -102,7 +100,9 @@ resource "azurerm_storage_account" "rnstorageacc2703x52x" {
       account_kind = "StorageV2"
       depends_on = [
         azurerm_resource_group.resource-group ]
+  
 }
+  
 output "For_Each-StorageID" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52x : x.id ]
 }
@@ -115,9 +115,9 @@ resource "azurerm_storage_container" "container2" {
       name                  = "container2"
       storage_account_name  = azurerm_storage_account.rnstorageacc2703x52x[each.key].name
       container_access_type = "blob"
+  
 }
 
-  
 
 //For_each example for RG from local variables
 resource "azurerm_resource_group" "RG46" {
@@ -128,6 +128,7 @@ resource "azurerm_resource_group" "RG46" {
       location = "North Europe"
   
 }
+  
 output "RG46-ID-from-resourceblock-that-uses-for-each" {
   value = [ for x in azurerm_resource_group.RG46 : x.id ]
 }
@@ -135,7 +136,6 @@ output "RG46-ID-from-resourceblock-without-for-each" {
   value = azurerm_resource_group.resource-group.name
   //if for each have not been used, there are no name = value pairs available.
 }
-
 
   
 //Creating RG from Map (Object)
@@ -145,6 +145,7 @@ resource "azurerm_resource_group" "RG1011" {
   
       name     = each.key
       location = each.value
+  
 }
   
 //Accessing map object from resource block
@@ -153,9 +154,7 @@ output "RG1011-from-resourceblock" {
 }
 
   
-  
 //Testing outputs from local variables
-  
   
   
 output "RG46-index-value-from-locals" {
