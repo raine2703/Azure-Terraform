@@ -24,6 +24,7 @@ locals {
     "tier" = 3
     "department" = "IT"
   }
+  
 }
   
   
