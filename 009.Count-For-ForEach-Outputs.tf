@@ -97,7 +97,7 @@ resource "azurerm_resource_group" "RG46" {
 output "RG46-ID-from-resourceblock" {
   value = [ for x in azurerm_resource_group.RG46 : x.id ]
 }
-//Outout from locals
+//Output from locals
 output "RG46-index-value-from-locals" {
   value = [ for x,y in local.rg46 : "${x} is ${y}"]
 }
