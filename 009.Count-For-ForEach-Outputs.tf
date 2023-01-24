@@ -56,7 +56,6 @@ resource "azurerm_storage_account" "rnstorageacc2703x52" {
         azurerm_resource_group.resource-group
       ]
 }
-  
 //To get name, id, location etc. in output:(iterate true list elements and output id of each one ) 
 output "Count-StorageID-from-resourceblock" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52 : x.id ]
@@ -102,7 +101,6 @@ resource "azurerm_storage_account" "rnstorageacc2703x52x" {
         azurerm_resource_group.resource-group ]
   
 }
-  
 output "For_Each-StorageID" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52x : x.id ]
 }
@@ -129,7 +127,6 @@ resource "azurerm_resource_group" "RG46" {
       location = "North Europe"
   
 }
-  
 output "RG46-ID-from-resourceblock-that-uses-for-each" {
   value = [ for x in azurerm_resource_group.RG46 : x.id ]
 }
@@ -148,7 +145,6 @@ resource "azurerm_resource_group" "RG1011" {
       location = each.value
   
 }
-  
 //Accessing map object from resource block
 output "RG1011-from-resourceblock" {
   value = [ for x in azurerm_resource_group.RG1011 : "${x.id} is id, ${x.name} is name"]
