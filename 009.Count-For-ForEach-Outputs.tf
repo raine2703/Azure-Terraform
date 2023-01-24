@@ -27,6 +27,10 @@ locals {
   }
 }
 
+  
+  
+  
+  
 //Count example for Storage with for tags
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
   count = 2 
@@ -61,6 +65,9 @@ resource "azurerm_storage_container" "container" {
       container_access_type = "blob"
 }
 
+ 
+  
+  
 //Count example for RG
 resource "azurerm_resource_group" "RG012" {
   count = 2
@@ -68,6 +75,9 @@ resource "azurerm_resource_group" "RG012" {
   location = "North Europe"
 }
 
+  
+  
+ 
 //For_each example for Storage Account
 resource "azurerm_storage_account" "rnstorageacc2703x52x" {
   for_each = toset(local.role)
@@ -93,6 +103,9 @@ resource "azurerm_storage_container" "container2" {
 }
 
 
+  
+  
+  
 
 //For_each example for RG from local variables
 resource "azurerm_resource_group" "RG46" {
@@ -109,23 +122,31 @@ output "RG46-ID-from-resourceblock-without-for-each" {
 }
 
 
-//Output from locals
-output "RG46-index-value-from-locals" {
-  value = [ for x,y in local.rg46 : "Index is ${x}, Value is ${y}"]
-}
 
-//Creating from Map (Object)
+
+  
+//Creating RG from Map (Object)
 resource "azurerm_resource_group" "RG1011" {
   for_each = local.rg
   name     = each.key
   location = each.value
 }
-
+  
 //Accessing map object from resource block
 output "RG1011-from-resourceblock" {
   value = [ for x in azurerm_resource_group.RG1011 : "${x.id} is id, ${x.name} is name"]
 }
 
+  
+  
+//Testing outputs from local variables
+  
+  
+  
+output "RG46-index-value-from-locals" {
+  value = [ for x,y in local.rg46 : "Index is ${x}, Value is ${y}"]
+}  
+  
 //For all list items take index (optional) and value. Default just value.
 output "roles-index-value" {
   value = [ for x,y in local.role : "Index is ${x}, value is ${y}"]
