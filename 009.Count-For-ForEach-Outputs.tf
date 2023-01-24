@@ -120,7 +120,7 @@ resource "azurerm_storage_container" "container2" {
 }
 
 
-//For_each example for RG from local variables
+//For_each example for RG from local list
 resource "azurerm_resource_group" "RG46" {
   
   for_each = toset(local.rg46)
@@ -139,7 +139,7 @@ output "RG46-ID-from-resourceblock-without-for-each" {
 }
 
   
-//Creating RG from Map (Object)
+//Creating RG from local Map (Object)
 resource "azurerm_resource_group" "RG1011" {
   
   for_each = local.rg
