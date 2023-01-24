@@ -7,7 +7,7 @@ locals {
   resource_group_name = "RG3"
   location = "North Europe"
   
-  //List (Tuple) Massive of values. Indext 0,1,3.. available if needed.
+  //List (Tuple) Massive of values. Index 0,1,3.. available if needed.
   role=["videos","images"]
   rg46=["RG4","RG5", "RG6"]
   
