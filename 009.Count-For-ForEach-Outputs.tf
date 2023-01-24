@@ -63,6 +63,7 @@ output "Count-StorageID-from-resourceblock" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52 : x.id ]
 }
 
+  
 //Creat 3 containers to rnstorageacc2703x52 using same count feature. See how SA name is accessed!
 resource "azurerm_storage_container" "container" {
   
@@ -107,6 +108,7 @@ output "For_Each-StorageID" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52x : x.id ]
 }
 
+  
 //Creat 3 containers to rnstorageacc2703x52x using same for each feature
 resource "azurerm_storage_container" "container2" {
   
