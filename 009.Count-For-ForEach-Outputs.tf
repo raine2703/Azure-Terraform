@@ -26,8 +26,6 @@ locals {
     "department" = "IT"
   }
 }
-
-  
   
   
   
@@ -65,7 +63,6 @@ resource "azurerm_storage_container" "container" {
       container_access_type = "blob"
 }
 
- 
   
   
 //Count example for RG
@@ -77,7 +74,6 @@ resource "azurerm_resource_group" "RG012" {
 
   
   
- 
 //For_each example for Storage Account
 resource "azurerm_storage_account" "rnstorageacc2703x52x" {
   for_each = toset(local.role)
@@ -102,9 +98,6 @@ resource "azurerm_storage_container" "container2" {
       container_access_type = "blob"
 }
 
-
-  
-  
   
 
 //For_each example for RG from local variables
@@ -120,8 +113,6 @@ output "RG46-ID-from-resourceblock-without-for-each" {
   value = azurerm_resource_group.resource-group.name
   //if for each have not been used, there are no name = value pairs available.
 }
-
-
 
 
   
@@ -152,6 +143,7 @@ output "roles-index-value" {
   value = [ for x,y in local.role : "Index is ${x}, value is ${y}"]
   //formula [for i, v in var.list : "${i} is ${v}"]
 }
+    
 output "roles-just-value" {
   value = [ for x in local.role : "Value is ${x}"]
   //formula [for i, v in var.list : "${i} is ${v}"]
@@ -162,3 +154,5 @@ output "vnet-key-value" {
   value = [for a, b in local.virtual_network : "Key is ${a}, value is ${b}"]
   //formula [for k, v in var.map : length(k) + length(v)] 
 }
+    
+    
