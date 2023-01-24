@@ -1,7 +1,6 @@
 
 //Examples with count, for_each, for and outputs
 
-//Defining local variables
 locals {
 
   resource_group_name = "RG3"
