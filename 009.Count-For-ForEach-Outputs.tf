@@ -81,8 +81,8 @@ resource "azurerm_resource_group" "RG012" {
   
    count = 2
   
-    name     = "${count.index}RG"
-    location = "North Europe"
+      name     = "${count.index}RG"
+      location = "North Europe"
   
 }
 
