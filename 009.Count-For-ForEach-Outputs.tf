@@ -58,10 +58,10 @@ resource "azurerm_storage_account" "rnstorageacc2703x52" {
       ]
 }
   
-//To get name, id, location etc. in output:(iterate true list elements and output id of each one ) 
-output "Count-StorageID-from-resourceblock" {
-  value = [ for x in azurerm_storage_account.rnstorageacc2703x52 : x.id ]
-}
+      //To get name, id, location etc. in output:(iterate true list elements and output id of each one ) 
+      output "Count-StorageID-from-resourceblock" {
+        value = [ for x in azurerm_storage_account.rnstorageacc2703x52 : x.id ]
+      }
 
   
 //Creat 3 containers to rnstorageacc2703x52 using same count feature. See how SA name is accessed!
@@ -104,9 +104,9 @@ resource "azurerm_storage_account" "rnstorageacc2703x52x" {
   
 }
   
-output "For_Each-StorageID" {
-  value = [ for x in azurerm_storage_account.rnstorageacc2703x52x : x.id ]
-}
+      output "For_Each-StorageID" {
+        value = [ for x in azurerm_storage_account.rnstorageacc2703x52x : x.id ]
+      }
 
   
 //Creat 3 containers to rnstorageacc2703x52x using same for each feature
@@ -131,13 +131,13 @@ resource "azurerm_resource_group" "RG46" {
   
 }
   
-output "RG46-ID-from-resourceblock-that-uses-for-each" {
-  value = [ for x in azurerm_resource_group.RG46 : x.id ]
-}
-output "RG46-ID-from-resourceblock-without-for-each" {
-  value = azurerm_resource_group.resource-group.name
-  //if for each have not been used, there are no name = value pairs available.
-}
+      output "RG46-ID-from-resourceblock-that-uses-for-each" {
+        value = [ for x in azurerm_resource_group.RG46 : x.id ]
+      }
+      output "RG46-ID-from-resourceblock-without-for-each" {
+        value = azurerm_resource_group.resource-group.name
+        //if for each have not been used, there are no name = value pairs available.
+      }
 
   
 //Creating RG from Map (Object)
@@ -150,10 +150,10 @@ resource "azurerm_resource_group" "RG1011" {
   
 }
   
-//Accessing map object from resource block
-output "RG1011-from-resourceblock" {
-  value = [ for x in azurerm_resource_group.RG1011 : "${x.id} is id, ${x.name} is name"]
-}
+      //Accessing map object from resource block
+      output "RG1011-from-resourceblock" {
+        value = [ for x in azurerm_resource_group.RG1011 : "${x.id} is id, ${x.name} is name"]
+      }
 
   
 //Testing outputs from local variables
