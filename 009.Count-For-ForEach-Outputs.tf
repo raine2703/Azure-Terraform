@@ -38,25 +38,28 @@ resource "azurerm_resource_group" "resource-group" {
   
 //Count example for Storage with for tags
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
+  
   count = 2 
-  name                     = "${count.index}countstoragern2"
-  resource_group_name      = "RG3"
-  location                 = "North Europe"
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  account_kind = "StorageV2"
-  tags = {
-    //environment = local.common-tags.environment
-    //tier = local.common-tags.tier
-    //department = local.common-tags.department
+  
+      name                     = "${count.index}countstoragern2"
+      resource_group_name      = "RG3"
+      location                 = "North Europe"
+      account_tier             = "Standard"
+      account_replication_type = "LRS"
+      account_kind = "StorageV2"
+      tags = {
+        //environment = local.common-tags.environment
+        //tier = local.common-tags.tier
+        //department = local.common-tags.department
 
-    //Instead using FOR expression:
-    for a,b in local.common-tags : a=>"${b}" 
-  }
-  depends_on = [
-    azurerm_resource_group.resource-group
-  ]
+        //Instead using FOR expression:
+        for a,b in local.common-tags : a=>"${b}" 
+      }
+      depends_on = [
+        azurerm_resource_group.resource-group
+      ]
 }
+  
 //To get name, id, location etc. in output:(iterate true list elements and output id of each one ) 
 output "Count-StorageID-from-resourceblock" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52 : x.id ]
@@ -64,34 +67,41 @@ output "Count-StorageID-from-resourceblock" {
 
 //Creat 3 containers to rnstorageacc2703x52 using same count feature. See how SA name is accessed!
 resource "azurerm_storage_container" "container" {
+  
   count = 2
+  
       name                  = "container"
       storage_account_name  = azurerm_storage_account.rnstorageacc2703x52[count.index].name
       container_access_type = "blob"
+  
 }
 
   
   
 //Count example for RG
 resource "azurerm_resource_group" "RG012" {
-  count = 2
-  name     = "${count.index}RG"
-  location = "North Europe"
+  
+   count = 2
+  
+    name     = "${count.index}RG"
+    location = "North Europe"
 }
 
   
   
 //For_each example for Storage Account
 resource "azurerm_storage_account" "rnstorageacc2703x52x" {
+  
   for_each = toset(local.role)
-  name                     = "${each.key}foreach"
-  resource_group_name      = "RG3"
-  location                 = "North Europe"
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  account_kind = "StorageV2"
-  depends_on = [
-    azurerm_resource_group.resource-group ]
+  
+      name                     = "${each.key}foreach"
+      resource_group_name      = "RG3"
+      location                 = "North Europe"
+      account_tier             = "Standard"
+      account_replication_type = "LRS"
+      account_kind = "StorageV2"
+      depends_on = [
+        azurerm_resource_group.resource-group ]
 }
 output "For_Each-StorageID" {
   value = [ for x in azurerm_storage_account.rnstorageacc2703x52x : x.id ]
@@ -99,7 +109,9 @@ output "For_Each-StorageID" {
 
 //Creat 3 containers to rnstorageacc2703x52x using same for each feature
 resource "azurerm_storage_container" "container2" {
+  
   for_each = azurerm_storage_account.rnstorageacc2703x52x
+  
       name                  = "container2"
       storage_account_name  = azurerm_storage_account.rnstorageacc2703x52x[each.key].name
       container_access_type = "blob"
@@ -109,9 +121,12 @@ resource "azurerm_storage_container" "container2" {
 
 //For_each example for RG from local variables
 resource "azurerm_resource_group" "RG46" {
+  
   for_each = toset(local.rg46)
-  name     = "${each.key}-RG"
-  location = "North Europe"
+  
+      name     = "${each.key}-RG"
+      location = "North Europe"
+  
 }
 output "RG46-ID-from-resourceblock-that-uses-for-each" {
   value = [ for x in azurerm_resource_group.RG46 : x.id ]
@@ -125,9 +140,11 @@ output "RG46-ID-from-resourceblock-without-for-each" {
   
 //Creating RG from Map (Object)
 resource "azurerm_resource_group" "RG1011" {
+  
   for_each = local.rg
-  name     = each.key
-  location = each.value
+  
+      name     = each.key
+      location = each.value
 }
   
 //Accessing map object from resource block
