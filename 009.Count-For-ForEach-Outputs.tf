@@ -29,6 +29,13 @@ locals {
   
   
   
+resource "azurerm_resource_group" "resource-group" {
+  name     = local.resource_group_name
+  location = local.location
+} 
+  
+  
+  
 //Count example for Storage with for tags
 resource "azurerm_storage_account" "rnstorageacc2703x52" {
   count = 2 
