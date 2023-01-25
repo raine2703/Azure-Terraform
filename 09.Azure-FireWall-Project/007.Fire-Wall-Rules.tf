@@ -1,4 +1,3 @@
-
 //Creating Rules for FW
 resource "azurerm_firewall_policy_rule_collection_group" "rulecollection" {
   name               = "rulecollection"
