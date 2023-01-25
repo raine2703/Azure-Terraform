@@ -1,4 +1,3 @@
-
 //Public IP for FW
 resource "azurerm_public_ip" "firewallip" {
   name                = "firewall-ip"
