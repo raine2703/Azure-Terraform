@@ -14,7 +14,6 @@ resource "azurerm_network_interface" "nic" {
   ]
 }
 
-
 resource "azurerm_windows_virtual_machine" "vm" {  
   name                = "vm1"
   resource_group_name = local.resource_group_name
