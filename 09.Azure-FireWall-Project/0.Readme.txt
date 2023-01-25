@@ -1,0 +1,16 @@
+Project for Azure Firewall.
+
+VM traffic managed true AFW.
+
+Set up:
+    Vnet with one Subnet and Virtual Machine without public ip address.
+
+Azure Firewall Service:
+    Azure FW denys all traffic by default. No internal, external access allowed. To rdp to VM and access web from it dnat and application rules must be added. 
+    Required its own Subnet AzureFirewallSubnet.
+    Route Table required to route traffic from Subnet to FW (virtual appliance).
+    Firewall Policy used to manage rules.
+        DNAT Rule that routes connections to FW public ip:4000 to VM private ip:3389. (RDP fw.public.ip:4000).
+        Application rule to allow access to https://www.microsoft.com/.
+            Default: "Action: Deny. Reason: No rule matched. Proceeding with default action".
+
