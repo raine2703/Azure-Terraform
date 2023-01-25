@@ -56,3 +56,4 @@ resource "azurerm_firewall" "appfirewall" {
     azurerm_resource_group.resource-group
   ]
 }
+  
