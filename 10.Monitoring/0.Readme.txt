@@ -1,0 +1,7 @@
+Project for Monitoring setup
+
+Created Action group that sends email when VM has x network usage or its restarted.
+
+VM1 connected to Log Analytics Worspace with MicrosoftMonitoringAgent extension. Important to define LAW primary_shared_key.
+
+Specifying to send System Information event to LAW. Use KQL to query them.
