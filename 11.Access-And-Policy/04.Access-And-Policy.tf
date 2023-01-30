@@ -17,7 +17,6 @@ data "azuread_user" "example" {
   ]
 }
 
-
 //Assigning user RBAC role to Resource group level.
 resource "azurerm_role_assignment" "Reader_role" {
   scope                = azurerm_resource_group.resource-group.id
@@ -31,7 +30,6 @@ resource "azurerm_role_assignment" "Reader_role" {
     data.azuread_user.example
   ]
 }
-
 
 //Assigin AAD role
 resource "azuread_directory_role" "example" {
@@ -49,6 +47,7 @@ resource "azuread_directory_role_assignment" "example" {
 
 //Creating custom role from RBAC. Subscription level.
 
+  
 //Getting Scope
 data "azurerm_subscription" "Azuresubscription" {
 }
