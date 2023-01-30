@@ -1,5 +1,5 @@
-//Install azure cli and az login to be able to creat AAD user.
-//To add RBAC role you need to have User Acceess administartot or Owner role.
+//Install azure cli and az login to be able to create/manage AAD users.
+//To add RBAC role you need to have User Acceess administartor or Owner role.
 
 //Creating usera in AAD
 resource "azuread_user" "user" {
