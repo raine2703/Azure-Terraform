@@ -1,0 +1,10 @@
+Project for user access and policy administration.
+
+Creating Azure Active directory user.
+    Assigning RBAC reader role to Resource group level
+    Assigning AAD Helpdesk Administrator role to it.
+
+Creating custom RBAC role to Subscription level 
+    Assigning it to Resource group level
+
+Using inbuilt policy definition to edit its parameters and assign it to RG level.
