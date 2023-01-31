@@ -1,4 +1,4 @@
-Project for Modules and Outputs
+Project for Modules
 
 Creating Networkig module and Storage account module (new Folder). 
 
