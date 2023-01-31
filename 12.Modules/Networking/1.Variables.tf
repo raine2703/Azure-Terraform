@@ -19,3 +19,4 @@ variable "virtual_network_address_space" {
   type=string
   description="This defines the address space of the virtual network"
 }
+
