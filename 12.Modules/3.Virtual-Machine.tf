@@ -43,3 +43,5 @@ resource "azurerm_windows_virtual_machine" "appvm" {
     module.networking_module.resource_group
   ]
 }
+
+    
