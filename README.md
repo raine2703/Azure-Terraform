@@ -1,1 +1,1 @@
-# Azure-Terraform labs
+# Azure Terraform labs
