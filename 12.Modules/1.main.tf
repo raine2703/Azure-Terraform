@@ -1,4 +1,4 @@
-//Modules for RG, Networking, VM
+//Calling modules for RG, Networking, Sotrage accoun
 
 locals {
   resource_group_name = "RG3"
