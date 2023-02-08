@@ -1,0 +1,5 @@
+Project for Modules
+
+Creating Resource group, Networking and Storage accounts with help of modules.
+
+Based on outputs from Networking module creating Virtual Machines for each subnet created.
