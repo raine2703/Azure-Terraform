@@ -40,3 +40,5 @@ variable "network_security_group_rules" {
   type=list
   description = "This defines the network security group rules"
 }
+
+  
