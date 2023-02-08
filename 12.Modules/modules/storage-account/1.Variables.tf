@@ -20,3 +20,4 @@ variable "storage2_not_required" {
   description="Is SA not required?"
   //default = false
 }
+  
