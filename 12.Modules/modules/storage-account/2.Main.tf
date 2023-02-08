@@ -10,3 +10,5 @@ resource "azurerm_storage_account" "storage-account" {
   account_replication_type = "LRS"
   account_kind = "StorageV2"
 }
+
+    
