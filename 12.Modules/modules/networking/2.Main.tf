@@ -4,7 +4,7 @@
 module general_module_dependency{
     //going to general folder to get RG name and location
     source=".././general"
-    //rg name and location expected as variables for general module
+    //rg name and location expected as variables for general module, have to pass them
     rg_name = var.resource_group_name
     rg_location = var.location
 }
