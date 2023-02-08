@@ -118,3 +118,4 @@ resource "azurerm_network_security_rule" "nsgrules" {
    azurerm_network_security_group.nsg
  ]
 }
+
